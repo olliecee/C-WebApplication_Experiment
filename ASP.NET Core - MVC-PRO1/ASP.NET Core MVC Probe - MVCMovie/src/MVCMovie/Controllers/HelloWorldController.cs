@@ -12,10 +12,18 @@ namespace MvcMovie.Controllers
          * I believe this is an action, more precisely, a default action for this
          * specific Class
          */
-        public string Index()
+//        public string Index()
+//        {
+//            return "This is my default action...";
+//        }
+
+        public IActionResult Index()
         {
-            return "This is my default action...";
+            return View();
         }
+
+
+
 
         // Example 1, Controllers
 
@@ -41,9 +49,14 @@ namespace MvcMovie.Controllers
         // Example 2, Controllers
 
         // GET: /HelloWorld/Welcome/
-        public string Welcome(string name, int ID = 1)
+        public IActionResult Welcome(string name, int ID = 1)
         {
-            return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
+            ViewData["Message"] = "Hello " + name;
+            ViewData["NumTimes"] = ID;
+
+            return View();
+
+            //return HtmlEncoder.Default.Encode($"Hello {name}, ID: {ID}");
         }
     }
 }
