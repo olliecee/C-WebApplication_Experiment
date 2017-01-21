@@ -13,5 +13,7 @@ namespace MVCMovie.Models
         public string Genre { get; set; }
         [Display(Name = "Current Price")]
         public decimal Price { get; set; }
+        [Display(Name = "Popularity")]
+        public string Rating { get; set; }
     }
 }
